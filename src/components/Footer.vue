@@ -1,79 +1,79 @@
 <template>
-  <div id="footer" class="hidden-md-and-down">
+  <div id="footer">
     <div class="companyinfo">
-      <div class="container">
+      <div class="container tms-flex-between">
         <div class="info">
           <p class="info-line"></p>
           <p class="info-concat">联系我们</p>
-          <p class="info-detail">客服电话：18515478995（周一到周五早上9点-晚上10点）</p>
+          <p class="info-detail">
+            客服电话：18515478995（周一到周五早上9点-晚上10点）
+          </p>
           <p class="info-detail">wangxueling@yaocaiwuziyou.com</p>
           <p class="info-detail">地址：北京市海淀区上地辉煌国际2号楼7层</p>
         </div>
         <div class="qrcode">
           <div>
-            <img src="">
-            <span>优睿驰官方微信</span>
+            <img src="" />
+            <p class="tms-align-center">优睿驰官方微信</p>
           </div>
           <div>
-            <img src="">
-            <span>客服微信</span>
+            <img src="" />
+            <p class="tms-align-center">客服微信</p>
           </div>
         </div>
       </div>
     </div>
-    <div class="copyright">Copyright© 2009-2020 weimiao.cn 北京优睿驰科技有限公司 版权所有 京ICP备19026951号-2 京公网安备11010802033402号</div>
+    <div class="copyright tms-align-center">
+      Copyright© 2009-2020 weimiao.cn 北京优睿驰科技有限公司 版权所有
+      京ICP备19026951号-2 京公网安备11010802033402号
+    </div>
   </div>
 </template>
 <style lang="less">
 #footer {
+  margin-top: 1.4rem;
   color: #fff;
   .companyinfo {
-    background-color: #2d2f32;
-    padding-top: 52px;
-    padding-bottom: 66px;
+    font-size: 0.16rem;
+    line-height: 0.2rem;
+    padding-top: 0.52rem;
+    padding-bottom: 0.66rem;
     margin-right: auto;
-    font-size: 16px;
-    line-height: 20px;
+    background-color: #2d2f32;
     .info {
-      margin-right: auto;
       > p {
-        margin-bottom: 16px;
+        margin-bottom: 0.16rem;
       }
       .info-line {
-        width: 52px;
-        height: 8px;
+        width: 0.52rem;
+        height: 0.08rem;
         background-color: #d8d8d8;
-        margin-bottom: 14px;
+        margin-bottom: 0.14rem;
       }
       .info-concat {
-        font-size: 24px;
-        line-height: 32px;
-        margin-bottom: 20px;
+        font-size: 0.24rem;
+        line-height: 0.32rem;
+        margin-bottom: 0.2rem;
       }
     }
     .qrcode {
       display: flex;
-      & > div {
+      div {
         &:first-child {
-          margin-right: 28px;
+          margin-right: 0.28rem;
         }
-        & > img {
-          width: 104px;
-          height: 104px;
+        > img {
+          width: 1.04rem;
+          height: 1.04rem;
+          margin-bottom: 0.14rem;
           background-color: red;
-        }
-        & > span {
-          display: block;
-          text-align: center;
-          padding-top: 14px;
         }
       }
     }
   }
   .copyright {
-    font-size: 14px;
-    line-height: 48px;
-    text-align: center;
+    font-size: 0.14rem;
+    line-height: 0.48rem;
     background-color: #1e1f21;
   }
 }

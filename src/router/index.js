@@ -5,7 +5,8 @@ import Course from "../views/Course.vue";
 import CourseExperience from "../views/CourseExperience.vue";
 import Feedback from "../views/Feedback.vue";
 import AboutWe from "../views/AboutWe.vue";
-import Calculate from "../views/Calculate.vue";
+import Calculate from "../components/Calculate.vue";
+import Detail from "../views/Detail.vue";
 
 Vue.use(VueRouter);
 
@@ -31,7 +32,12 @@ const routes = [
     component: Feedback
   },
   {
-    path: "/aboutWe",
+    path: "/feedback/:id",
+    name: "Detail",
+    component: Detail
+  },
+  {
+    path: "/about",
     name: "AboutWe",
     component: AboutWe
   },
@@ -48,7 +54,6 @@ const routes = [
 
 const router = new VueRouter({
   mode: "history",
-
   routes
 });
 

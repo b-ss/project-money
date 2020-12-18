@@ -1,5 +1,7 @@
 <template>
-  <div>课程体验</div>
+  <div id="experi">
+    <img class="rich-banner" src="@/assets/image/banner2.png" />
+  </div>
 </template>
 <script>
 export default {};
