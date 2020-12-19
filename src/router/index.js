@@ -6,7 +6,7 @@ import CourseExperience from "../views/CourseExperience.vue";
 import Feedback from "../views/Feedback.vue";
 import AboutWe from "../views/AboutWe.vue";
 import Calculate from "../components/Calculate.vue";
-import Detail from "../views/Detail.vue";
+import FeedbackDetail from "../views/FeedbackDetail.vue";
 
 Vue.use(VueRouter);
 
@@ -22,7 +22,7 @@ const routes = [
     component: Course
   },
   {
-    path: "/courseExperience",
+    path: "/experience",
     name: "CourseExperience",
     component: CourseExperience
   },
@@ -32,9 +32,9 @@ const routes = [
     component: Feedback
   },
   {
-    path: "/feedback/:id",
-    name: "Detail",
-    component: Detail
+    path: "/feedback/detail/:id",
+    name: "FeedbackDetail",
+    component: FeedbackDetail
   },
   {
     path: "/about",

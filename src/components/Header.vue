@@ -1,7 +1,7 @@
 <template>
   <div id="nav">
     <div class="navbar">
-      <img src="@/assets/image/logo.png" class="rich-logo" />
+      <img :src="logoUrl" class="rich-logo" />
       <ul class="rich-menu">
         <router-link
           :to="{ name: 'Home' }"
@@ -45,6 +45,13 @@
 <script>
 export default {
   name: "Header",
+  computed: {
+    logoUrl() {
+      return this.$route.name === "Home"
+        ? require("@/assets/image/logo0.png")
+        : require("@/assets/image/logo1.png");
+    },
+  },
 };
 </script>
 <style lang="less">

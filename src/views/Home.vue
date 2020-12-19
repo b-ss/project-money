@@ -1,41 +1,44 @@
 <template>
   <div id="home">
-    <el-carousel trigger="click" height="6rem">
-      <el-carousel-item v-for="(carousel, key) in carousels" :key="key">
-        <img :src="carousel.url" />
-      </el-carousel-item>
-    </el-carousel>
+    <Banner :carousels="carousels" />
     <div class="container">
-      <div class="rich-top tms-align-center">
-        <img class="headlineImg" src="@/assets/image/home_headlineImg1.png" />
+      <div class="rich-top">
+        <p class="tms-align-center">
+          <img class="headlineImg" src="@/assets/image/home_headlineImg1.png" />
+        </p>
         <div class="tms-flex-between">
           <div class="rich-top-item" v-for="(item, key) in topItems" :key="key">
             <img :src="item.url" />
-            <p>{{ item.title }}</p>
+            <p class="tms-align-center">{{ item.title }}</p>
           </div>
         </div>
       </div>
-      <div class="rich-advantage tms-align-center">
-        <img class="headlineImg" src="@/assets/image/home_headlineImg2.png" />
-        <Card :advantages="advantages" />
+      <div class="rich-advantage">
+        <p class="tms-align-center">
+          <img class="headlineImg" src="@/assets/image/home_headlineImg2.png" />
+        </p>
+        <Card :cards="advantages" :pagename="'home'" />
       </div>
-      <div class="rich-teachers tms-align-center">
-        <img class="headlineImg" src="@/assets/image/home_headlineImg3.png" />
-        <div>
-          <img src="" />
-          <div>
-            <h1>赵锟</h1>
-            <p>CFA持证人（特许注册金融分析师）</p>
-            <p>
-              十年投资实践经验，从草根学子到亿万身家<br />擅长A股、美股、港股、REITs等投资工具<br />曾负责中国建设银行上市等大型项目
-            </p>
+      <div class="rich-teachers">
+        <p class="tms-align-center">
+          <img class="headlineImg" src="@/assets/image/home_headlineImg3.png" />
+        </p>
+        <div class="rich-teacher-leader">
+          <img class="pic" :src="leader.headimg" />
+          <div class="info">
+            <p>{{ leader.name }}</p>
+            <p>{{ leader.info }}</p>
           </div>
         </div>
-        <div>
-          <div v-for="(item, key) in teachers" :key="key">
-            <img :src="item.headimg" />
-            <h6>{{ item.name }}</h6>
-            <p>{{ item.info }}</p>
+        <div class="tms-flex-between">
+          <div
+            class="rich-teacher-staff"
+            v-for="(item, key) in staffs"
+            :key="key"
+          >
+            <img class="pic" :src="item.headimg" />
+            <p class="name">{{ item.name }}</p>
+            <p class="content">{{ item.info }}</p>
           </div>
         </div>
       </div>
@@ -44,11 +47,8 @@
 </template>
 
 <script>
-import Vue from "vue";
-import { Carousel, CarouselItem } from "element-ui";
+import Banner from "@/components/Banner.vue";
 import Card from "@/components/Card.vue";
-
-Vue.use(Carousel).use(CarouselItem);
 
 export default {
   name: "Home",
@@ -56,8 +56,8 @@ export default {
     return {
       carousels: [
         { url: require("@/assets/image/banner1.png") },
-        // { url: require('@/assets/image/carousel2.png') },
-        // { url: require('@/assets/image/carousel3.png') }
+        { url: require("@/assets/image/banner4.png") },
+        { url: require("@/assets/image/banner5.png") },
       ],
       topItems: [
         { url: require("@/assets/image/home_top1.png"), title: "投资小白" },
@@ -67,48 +67,132 @@ export default {
       advantages: [
         {
           url: require("@/assets/image/home_card1.png"),
-          title: "简单易懂",
-          info: "公司优势",
+          title: "平台专业",
+          info: "专业的教育平台，致力于改变学员知识结构，提升生活质量。",
         },
         {
           url: require("@/assets/image/home_card2.png"),
-          title: "师资强大",
-          info: "公司优势",
+          title: "课程易懂",
+          info:
+            "系统化的知识体系，详细的知识点拆分，让复杂晦涩的投资知识变通俗易懂，轻松掌握。",
         },
         {
-          url: require("@/assets/image/home_card1.png"),
-          title: "可操作性强",
-          info: "公司优势",
+          url: require("@/assets/image/home_card3.png"),
+          title: "师资强大",
+          info:
+            "课程研发团队，毕业于海外名校，具有多年的投资经验。教师全部具有相关从业经验，全程陪伴式学习。",
         },
         {
-          url: require("@/assets/image/home_card2.png"),
-          title: "师资强大",
-          info: "公司优势",
+          url: require("@/assets/image/home_card4.png"),
+          title: "实操容易",
+          info: "理论、案例和实操结合，增强学习效果，高效学习，充分掌握。",
         },
       ],
       teachers: [
         {
-          headimg: require("@/assets/image/home_top1.png"),
-          name: "人名",
-          info: "特许注册分析快递及",
+          headimg: require("@/assets/image/leader.png"),
+          name: "赵锟",
+          info:
+            "CFA持证人（特许注册金融分析师）<br />十年投资实践经验，从草根学子到亿万身家<br />擅长A股、美股、港股、REITs等投资工具<br />曾负责中国建设银行上市等大型项目",
         },
         {
-          headimg: require("@/assets/image/home_top1.png"),
-          name: "人名",
-          info: "特许注册分析快递及",
+          headimg: require("@/assets/image/leader.png"),
+          name: "赵锟",
+          info: "特许注册金融分析师",
         },
         {
-          headimg: require("@/assets/image/home_top1.png"),
-          name: "人名",
-          info: "特许注册分析快递及",
+          headimg: require("@/assets/image/leader.png"),
+          name: "赵锟",
+          info: "特许注册金融分析师",
+        },
+        {
+          headimg: require("@/assets/image/leader.png"),
+          name: "赵锟",
+          info: "特许注册金融分析师",
         },
       ],
     };
   },
+  computed: {
+    leader() {
+      return this.teachers[0];
+    },
+    staffs() {
+      return this.teachers.slice(1);
+    },
+  },
   components: {
     Card,
+    Banner,
   },
 };
 </script>
 <style lang="less">
+.rich-top {
+  .rich-top-item {
+    > img {
+      width: 1.6rem;
+      height: 1.6rem;
+      margin-bottom: 0.24em;
+    }
+    > p {
+      font-size: 0.24rem;
+      color: #2d2f32;
+    }
+  }
+}
+.rich-advantage,
+.rich-teachers {
+  .headlineImg {
+    margin-bottom: 1.1rem;
+  }
+}
+.rich-teachers {
+  .rich-teacher-leader {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.6rem;
+    .pic {
+      width: 2.79rem;
+      height: 3.63rem;
+      background-color: #f0f0f0;
+    }
+    .info {
+      margin-left: 0.62rem;
+      height: auto;
+      color: #2d2f32;
+      p:first-child {
+        font-size: 0.28rem;
+        margin-bottom: 0.14rem;
+      }
+      p:last-child {
+        font-size: 20px;
+        line-height: 42px;
+      }
+    }
+  }
+  .rich-teacher-staff {
+    width: 3.06rem;
+    padding: 1.4rem 0.3rem 0.1rem 0.3rem;
+    color: #2d2f32;
+    position: relative;
+    background-color: #f0f0f0;
+    box-sizing: border-box;
+    .pic {
+      width: 1.5rem;
+      height: 1.5rem;
+      border-radius: 50%;
+      position: absolute;
+      top: -0.75rem;
+      left: 0.75rem;
+    }
+    .name {
+      font-size: 0.22rem;
+    }
+    .content {
+      font-size: 0.18rem;
+      line-height: 0.42rem;
+    }
+  }
+}
 </style>

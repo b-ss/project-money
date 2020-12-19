@@ -1,22 +1,26 @@
 <template>
   <div id="aboutwe">
-    <img class="rich-banner" src="@/assets/image/banner2.png" />
+    <Banner :carousels="carousels" />
     <div class="container container-sm">
-      <div
-        class="rich-about tms-align-center"
-        v-for="(item, key) in infos"
-        :key="key"
-      >
-        <img class="rich-about-headlineImg" :src="item.url" />
+      <div class="rich-about" v-for="(item, key) in infos" :key="key">
+        <p class="rich-about-headlineImg">
+          <img :src="item.url" />
+        </p>
         <p class="rich-about-content">{{ item.content }}</p>
       </div>
     </div>
   </div>
 </template>
 <script>
+import Banner from "@/components/Banner.vue";
+
 export default {
   data() {
     return {
+      carousels: [
+        { url: require("@/assets/image/banner2.png") },
+        { url: require("@/assets/image/banner3.png") },
+      ],
       infos: [
         {
           url: require("@/assets/image/about_headlineImg1.png"),
@@ -41,6 +45,9 @@ export default {
       ],
     };
   },
+  components: {
+    Banner,
+  },
 };
 </script>
 <style lang="less">
@@ -48,6 +55,7 @@ export default {
   .rich-about-headlineImg {
     margin-top: 1.32rem;
     margin-bottom: 0.9rem;
+    text-align: center;
   }
   .rich-about-content {
     font-size: 0.2rem;
@@ -55,7 +63,6 @@ export default {
     color: #4d4e4c;
     letter-spacing: 0.002rem;
     text-indent: 2em;
-    text-align: left;
   }
 }
 </style>
