@@ -30,6 +30,7 @@
 </template>
 <script>
 import Banner from "@/components/Banner.vue";
+import apis from "../apis/index";
 
 export default {
   name: "Feedback",
@@ -39,48 +40,16 @@ export default {
         { url: require("@/assets/image/banner2.png") },
         { url: require("@/assets/image/banner3.png") },
       ],
-      feedbacks: [
-        {
-          id: 1,
-          title: "思维方式改变",
-          content:
-            "本人近几年生完二胎就全职在家带孩子，做做微商啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦没挣到什么钱。",
-          headimg: "",
-          name: "水墨丹青",
-          info: "水墨丹青",
-        },
-        {
-          id: 2,
-          title: "思维方式改变",
-          content:
-            "本人近几年生完二胎就全职在家带孩子，做做微商啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦没挣到什么钱。",
-          headimg: "",
-          name: "水墨丹青",
-          info: "水墨丹青",
-        },
-        {
-          id: 1,
-          title: "思维方式改变",
-          content:
-            "本人近几年生完二胎就全职在家带孩子，做做微商啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦没挣到什么钱。",
-          headimg: "",
-          name: "水墨丹青",
-          info: "水墨丹青",
-        },
-        {
-          id: 2,
-          title: "思维方式改变",
-          content:
-            "本人近几年生完二胎就全职在家带孩子，做做微商啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦没挣到什么钱。",
-          headimg: "",
-          name: "水墨丹青",
-          info: "水墨丹青",
-        },
-      ],
+      feedbacks: [],
     };
   },
   components: {
     Banner,
+  },
+  mounted() {
+    apis.getFeedback().then((data) => {
+      this.feedbacks = data;
+    });
   },
 };
 </script>

@@ -7,9 +7,17 @@
           <img class="headlineImg" src="@/assets/image/home_headlineImg1.png" />
         </p>
         <div class="tms-flex-between">
-          <div class="rich-top-item" v-for="(item, key) in topItems" :key="key">
-            <img :src="item.url" />
-            <p class="tms-align-center">{{ item.title }}</p>
+          <div class="rich-top-item">
+            <img src="@/assets/image/home_top1.png" />
+            <p class="tms-align-center">投资小白</p>
+          </div>
+          <div class="rich-top-item">
+            <img src="@/assets/image/home_top2.png" />
+            <p class="tms-align-center">投资基础</p>
+          </div>
+          <div class="rich-top-item">
+            <img src="@/assets/image/home_top3.png" />
+            <p class="tms-align-center">投资进阶实践</p>
           </div>
         </div>
       </div>
@@ -58,11 +66,6 @@ export default {
         { url: require("@/assets/image/banner1.png") },
         { url: require("@/assets/image/banner4.png") },
         { url: require("@/assets/image/banner5.png") },
-      ],
-      topItems: [
-        { url: require("@/assets/image/home_top1.png"), title: "投资小白" },
-        { url: require("@/assets/image/home_top2.png"), title: "投资基础" },
-        { url: require("@/assets/image/home_top3.png"), title: "投资进阶实践" },
       ],
       advantages: [
         {

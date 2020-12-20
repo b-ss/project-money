@@ -67,15 +67,17 @@
           </div>
         </div>
         <div class="experi-enroll-form">
-          <el-form :model="form" size="medium">
-            <el-form-item class="form-item">
+          <el-form :model="form" :rules="rules" size="medium">
+            <el-form-item class="form-item" prop="tel">
               <el-input
                 class="form-input"
+                minlength="11"
+                maxlength="11"
                 placeholder="请输入手机号"
                 v-model="form.tel"
               ></el-input>
             </el-form-item>
-            <el-form-item class="form-item">
+            <el-form-item class="form-item" prop="code">
               <el-input
                 class="form-input"
                 placeholder="请输入验证码"
@@ -104,8 +106,10 @@
 import Vue from "vue";
 import Banner from "@/components/Banner.vue";
 import Card from "@/components/Card.vue";
-import { Form, FormItem, Input, Button } from "element-ui";
+import { Form, FormItem, Input, Button, Message } from "element-ui";
 Vue.use(Form).use(FormItem).use(Input).use(Button);
+
+import apis from "../apis/index";
 
 export default {
   name: "Experi",
@@ -114,6 +118,17 @@ export default {
       form: {
         tel: "",
         code: "",
+      },
+      rules: {
+        tel: [
+          { required: true, message: "请输入手机号", trigger: "blur" },
+          {
+            pattern: /^1[3|4|5|8][0-9]\d{4,8}$/,
+            message: "手机号格式错误",
+            trigger: "blur",
+          },
+        ],
+        code: [{ required: true, message: "请输入验证码", trigger: "blur" }],
       },
       carousels: [
         { url: require("@/assets/image/banner2.png") },
@@ -166,8 +181,16 @@ export default {
     Card,
   },
   methods: {
-    getCode() {},
-    submit() {},
+    getCode() {
+      apis.getCode(this.form.tel).then((code) => {
+        this.form.code = code;
+      });
+    },
+    submit() {
+      apis.postForm(this.form).then(() => {
+        Message.success({ message: "提交成功" });
+      });
+    },
   },
 };
 </script>
