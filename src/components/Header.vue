@@ -66,7 +66,7 @@ export default {
     display: flex;
     padding: 0.18rem 0;
     .rich-logo {
-      width: 1.8rem;
+      width: 2.5rem;
       height: 0.5rem;
       margin-right: auto;
     }
